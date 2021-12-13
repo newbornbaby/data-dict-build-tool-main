@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    mysql:
+      jdbc-url: jdbc:mysql://10.100.2.163:3306/information_schema?serverTimezone=GMT%2B8&characterEncoding=UTF-8
+      username: ENC(6MQQRlLJsUa+Z591wQiXiY0V4VKe0CtrwPagwy6N86hYWXLHDWyOVVhunoMe0TK6)
+      password: ENC(jOIjWRglxbDrpjhV6uaIDv+uGPXuIqnUeG2TzsoozgiGNpQ81npJTXkfXx1jJieI)
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    oracle:
+      jdbc-url: jdbc:oracle:thin:@localhost:1521:ORCL
+      username: ENC(L0B/57PEV6y+17DPGGl30eL6e/ybjbJq0z77HSGbrECnbM5AK7D1TVruGTu08i/H)
+      password: ENC(5rVBqBJQ0jbeRinnbB77CrgHiKguQ5AefjLc3WakwdUBfeRyS+XsDRTHBZkPhA1M)
+      driver-class-name: oracle.jdbc.OracleDriver
+# export config
+app:
+  # 数据库类型，此配置将决定使用哪种类型的数据库导出数据字典，当前支持：mysql、oracle
+  db-type: mysql
+  # 需要导出数据字典的数据库名称
+  # table-schema: ec_pay_mgr_sit
+  table-schema: ec_pay_sdm_sit
+  # Oracle表空间所属用户
+  owner:
+  # 数据字典文件导出位置
+  export-path: /Users/maozuowei/Downloads/${app.db-type}_数据字典导出.xlsx
+jasypt:
+  encryptor:
+    password: hello
+# mybatis config
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.maozuowei.entity
